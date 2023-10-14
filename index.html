@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>P.EXT ENCODE M4CH1N3</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f1f1f1;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 300px;
+      height: 50px;
+      min-width: 250px;
+      min-height: 50px;
+      max-width: 450px;
+      max-height: 450px;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      resize: both;
+      overflow: auto;
+      border: none;
+      outline: none;
+    }
+
+    .button-regular {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      outline: none;
+      background-color: #eeeeee;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      border-radius: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .button-regular:hover {
+      transform: scale(0.95);
+    }
+
+    .button-regular:active {
+      transform: scale(1.3);
+      transition: transform 1.5s ease-in-out;
+    }
+input[type="text"],
+input[type="number"] {
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 5px 0;
+}
+
+.checkbox-wrapper-45 {
+  display: flex;
+  align-items: center;
+}
+.checkbox-wrapper-45 input[type="checkbox"] {
+  display: none;
+  visibility: hidden;
+}
+.checkbox-wrapper-45 .cbx {
+  -webkit-perspective: 20;
+  perspective: 20;
+  display: inline-block;
+  border: 2px solid #e8e8eb;
+  background: #e8e8eb;
+  border-radius: 4px;
+  transform: translate3d(0, 0, 0);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.checkbox-wrapper-45 .cbx:hover {
+  border-color: #0b76ef;
+}
+.checkbox-wrapper-45 .flip {
+  display: block;
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.checkbox-wrapper-45 input[type="checkbox"]:checked + .cbx {
+  border-color: #0b76ef;
+}
+.checkbox-wrapper-45 input[type="checkbox"]:checked + .cbx .flip {
+  transform: rotateY(180deg);
+}
+.checkbox-wrapper-45 .front,
+.checkbox-wrapper-45 .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+}
+.checkbox-wrapper-45 .front {
+  background: #fff;
+  z-index: 1;
+}
+.checkbox-wrapper-45 .back {
+  transform: rotateY(180deg);
+  background: #0b76ef;
+  text-align: center;
+  color: #fff;
+  line-height: 20px;
+  box-shadow: 0 0 0 1px #0b76ef;
+}
+.checkbox-wrapper-45 .back svg {
+  margin-top: 3px;
+  fill: none;
+}
+.checkbox-wrapper-45 .back svg path {
+  stroke: #fff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.checkbox-label {
+  user-select: none;
+  cursor: pointer;
+  margin-left: 10px;
+  line-height: 20px;
+}
+select {
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+    .MainOutput {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f9;
+  max-width: 1250px;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+  </style>
+  <script>
+    var keyphr = "";
+var keyphrases
+var customseed
+var seedtype1
+var saltid
+var saltper
+    var seed34
+    var salt
+function globalDecode() {
+  if (salttt == "hard") {
+    console.log(1)
+    salt = "yJgH)3*&yo*1Gb6*84ZYbW*2o#yS(*7W&5Z)(9SDFCXVBXVCBTD3kC6mvT29J##p#Fq1XGkNe69@Zr0G%oErQP3kBjDHFGHDFJGP~PaAkeHFxa5E*A$mQm0x613~wAxJGHJGHJFGHJP2bGALBfZLBViY4}f#LXnHyCtvz?5FJFGHJGHJ347%2rSmU*DJF3Z%kD5Yo2FJGHJFGH46796243GSFDGSDFHGF4270637942653452парапрорe59586b3d55456c615245453GFHJFGHJd4d544d7a4e32747964573DGHJGFJFGJLKYUOP572633256756332566a636d466a613256ыавы1236b4d513d3d0x6132467962%Vc%TTuo8ASрапрап53wM}R1Vw6o**0bwcRKSToBl*$pfRR2PD3}BlPrnO4342706пависмап79426e59586312312b3d55456c615245авпваи5453d4d544d7a4e327479645735726прарап3325675633256смисми6a636d466a6132566b4d513d3d챮첊챩첚챭첇챝챝|ᢥ᢬ᢙᣑᢽᢜᢥᢊᢦᢜᢝᢉᢥᣒᢱᣑᢦᣒᢩᢌᢦᣂᣃᢋᢥᢜᣄᢾᢦᣁᣋᣑᢨ᢬ᢩᣌᢥᢑрапрайукарᢛᢚᢦᢠᢌᣑᢱᢜᢾᢩᣍ᢬ᢜᢪᣀᣂрапрᢺᢪᢿᣒᢨᢩᣍᣂᢾᢩᣌ᢬рвапфыᣆᢩᣎ᢬}%JHB$Q8zZDrOnM#21hcp{rNANкеунXRdpbOR2SDTQiHeDT~6O4ujj᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒᢰᢪᣀ᢬ᣆᢪᣁᣂᢰᢪᣀᢜᣂᢪᣁᣒᢺᢩᣋᣅᢤᢩᣋ57r%yssoiwOxzbf~YxHbцукецуqffT9q*VB{~%z|0H*XtM8Wmy5oWgV{ᢜпаролопᢨᢩᣎᢊ᢬ᢪᢿᢜᢰᢩᣎᣂᢰᢩᣍᣒ᢬ᢩᣌᢜᢰᢩᣌᣂᢺᢪᣂ᢯ᢦᢻвапрвапᢦᣌᢟᢨᢥᢼᢟᢠᢦᢼᢟᢚᢥᣌᢛᢐᢦᢦᢛᢌᢦᢼᢟᢛᢦᢦᢟᢥᢦᢼᢛᣐᢥᢑᢟᢧᢲᢛᢌᢈᢤᢊᢪᣐᢦᢰᢻᢈᢲyw3iIECg6gQb4$6TuSzlCzDlW6On1YpMcJscbv%iC}A6rGA2$Y᢬ᢪᣑᢲᢠᢩᢋᢽ᢯ᢞᢉᢦᢟᣄᣄᢺᣒᢦᣏᢥᣄᣋᢋᢰ᢬ᢪᣀᢦᢋᢥᢍᢲᢜᢲᣅᢦᢟᢻᢉᢹᢜᢼᣉᢥᢊᣋᢉᢺᢜᢻᢏᢥᣁᢻᢊᢰᢜᢦᢎᢥᢋᢿᣑᢱᣒ᢮ᢊᢦᣅᢡᢋᢺᣂ᢮ᣌᢦᣁᣏᣒᢤᣂᢥᣎᢥᣂ᢭ᢊᢦᣅᢝᢊᢥMT2n?Mw7B@*jYtfeLXlIN7G5O102~zl4DlGttaPbDfVDfxo9Igᣒᢲᣃᢦᢜᢱᢊᢱ᢬ᢱᣐᢥᣒᢡᢉᢦᣂᢲᣁᢦᢟᢩᢉᢥ᢬ᢦᣃᢥᢊᢩᣏᢽᢜᢱᣐᢥᣒᢡᢈᢦᣂᢻᢍᢦᣂᢡᢈᢥᣒᢩᣑᢦᣒᢙᢊᢥᣒᢻᢍᢦᢜᢡᢊᢲ᢬᢭ᢍᢦ᢬ᢿᢊᢱᣂᢦᣃᢦ᢬᢭ᢈᢦ᢬ᢲᣂᢦᣂᢝᢉᢥᣂᢩᢉᢦᢜ᢭ᣒᢲᢜᢪᣃᢦzk47C$IEiJeIeXzif0GX9r9KH*IdYF3*b$sj%d$MB~BuTQdlrp᢬ᢩᢈᢲᢜᢼᣀᢦᢟ᢭ᣒᢥᣂᢻᢈᢦᣒᣃᢊᢦᢜ᢭ᢋᢥᣒ᢭ᢋᢥᣂᢱᣒᢥᣒyRz9$zCAnk1*TtS~cE8PV~p}htW23JHG*?5QIN8dSaHoT~5d~u6YRQXWpQE|cJA$ZMkl7~8fd3Xci??ZFb$OgoeJlr%nQ6H?KgFKᢡᢉᢦᣂᢻᢉᢦᣂᢥᣒᢥᣂ᢭ᢊᢦᣅᢝᢊᢥ57#V&x&tCo*0b752ᣒᢲᣃᢦᢜᢱᢊᢱ᢬ᢱᣐᢥᣒᢡᢉᢦᣂᢲᣁᢦᢟᢩᢉᢥ᢬ᢦᣃᢥᢊᢩᢕ"
+  }
+  if (salttt == "medium") {
+    console.log(2)
+    salt = "o4236asqwi}fSDFGSDFGSFDgnHyCtvz?5347%2rSmU*DJF3Z%kaGSDFGSDGSgfsiposerdpsfolkgb]c[vk]bn[ovnopcvbp[dihio[triyer[poqwerojksa['fqwe]edf;sxfvsd.\cvxc.vASDf\asdfq][weprrp]tefdsg'\sdfgsdflvxbc/vxcvbbsdfgsd;fklg'poertw[rtwe]qwqwe]sldf;\sdfs\SD\AD;ASF\';SDKD5Yo2467962434270637942653452парапрорe59586b3d55456c615245453d4d544d7a4e3{odx)cv(b;l312578[nk()jj᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒᢰ\s\zow1222930"
+  }
+  if (salttt == "easy") {
+    console.log(3)
+    salt = "12᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒ34ъхап645q᢬ᢩd7a4e32747964573572633256756332566a636d466a613256ыавы1236b4dᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒᢰ\askfsddgfdfopdd7a4e32747964573572633256756332566a636d466a613256ыавы1236b4d᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒ2d7a4e32747964573572633256756332566a636d466a613256ыавы1236b4d3590"
+  }
+  if (salttt == "custom") {
+    console.log(4)
+    salt = saltt
+  }
+  if (seedtype1 == "zalgo"){
+    seed34 = 729
+    console.log(1)
+  }
+  if (seedtype1 == "random"){
+    seed34 = Math.floor(Math.random() * 6969) + 1;
+    console.log(2)
+  }
+  if (seedtype1 == "custom"){
+    seed34 = customseed
+    console.log(3)
+  }
+function encodeToBase64(text) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  let base64 = '';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  let padding = 0;
+  let position = 0;
+  let buffer = 0;
+  while (position < data.length) {
+    buffer <<= 8;
+    buffer |= data[position];
+    padding += 8;
+    position++;
+    while (padding >= 6) {
+      padding -= 6;
+      const index = (buffer >> padding) & 0x3f;
+      base64 += characters[index];
+    }
+  }
+  if (padding > 0) {
+    buffer <<= 6 - padding;
+    const index = buffer & 0x3f;
+    base64 += characters[index];
+  }
+  while (base64.length % 4 !== 0) {
+    base64 += '=';
+  }
+  return base64;
+}
+
+const base64String = keyphrases.map((phrase) => encodeToBase64(phrase)).join('');
+
+const hexString = Array.from(base64String, function (char) {
+  return char.charCodeAt(0).toString(16).padStart(2, '0');
+}).join('');
+const numberString = "0x" + hexString;
+
+console.log(numberString);
+
+
+function removeSaltFromText(text, salt, period) {
+  let originalText = '';
+  let saltIndex = saltid;
+
+  for (let i = 0; i < text.length; i++) {
+    if (i % period === 0 && saltIndex < salt.length && text[i] === salt[saltIndex]) {
+      saltIndex++;
+    } else {
+      originalText += text[i];
+    }
+    if (saltIndex === salt.length) {
+      saltIndex = 0;
+    }
+  }
+
+  return decodeFromBase64(originalText);
+}
+
+
+console.log(numberString)
+var basenum = Number(numberString)
+basenum = Math.floor(basenum % 100000)
+
+console.log(basenum)
+function decodeFromBase64(base64Encoded) {
+  const binaryData = atob(base64Encoded);
+  const decodedData = new TextDecoder().decode(new Uint8Array([...binaryData].map(char => char.charCodeAt(0))));
+  return decodedData;
+}
+function decodeText1(text) {
+  const emojiArray = Array.from(text);
+  const base64Array = emojiArray.map(emoji => String.fromCharCode(emoji.codePointAt(0) - basenum));
+  const base64Url = base64Array.join('');
+  const utf8Url = decodeURIComponent(escape(atob(base64Url)));
+  return utf8Url;
+}
+
+function decodeText2(text, num) {
+  const emojiArray = Array.from(text)
+  const base64Array = emojiArray.map(emoji => String.fromCharCode(emoji.codePointAt(0) - num))
+  const base64Url = base64Array.join('')
+  const utf8Url = decodeURIComponent(escape(atob(base64Url)))
+  return utf8Url
+}
+var encryptedText = document.getElementById("MainInput").value;
+if (SecondPartProtect == true) {
+function decodeFromHex(hexString) {
+  return hexString.replace(/\\u[\dA-Fa-f]{4}/g, (match) => {
+    return String.fromCharCode(parseInt(match.slice(2), 16));
+  });
+}
+encryptedText = decodeFromHex(encryptedText);
+
+console.log(encryptedText);
+}
+var parts = encryptedText.split('|')
+var firstPart = parts[0]
+var secondPart = parts[1]
+var decryptedFirstPart = decodeText1(firstPart)
+var num = parseInt(decryptedFirstPart, 10)
+var decryptedSecondPart = decodeText2(secondPart, num)
+
+var originalText = removeSaltFromText(decryptedSecondPart, salt, saltper)
+console.log(originalText)
+MainOutput.textContent = originalText
+}
+function globalEncode() {
+function encodeToBase64(text) {
+  if (salttt == "hard") {
+    console.log(1)
+    salt = "yJgH)3*&yo*1Gb6*84ZYbW*2o#yS(*7W&5Z)(9SDFCXVBXVCBTD3kC6mvT29J##p#Fq1XGkNe69@Zr0G%oErQP3kBjDHFGHDFJGP~PaAkeHFxa5E*A$mQm0x613~wAxJGHJGHJFGHJP2bGALBfZLBViY4}f#LXnHyCtvz?5FJFGHJGHJ347%2rSmU*DJF3Z%kD5Yo2FJGHJFGH46796243GSFDGSDFHGF4270637942653452парапрорe59586b3d55456c615245453GFHJFGHJd4d544d7a4e32747964573DGHJGFJFGJLKYUOP572633256756332566a636d466a613256ыавы1236b4d513d3d0x6132467962%Vc%TTuo8ASрапрап53wM}R1Vw6o**0bwcRKSToBl*$pfRR2PD3}BlPrnO4342706пависмап79426e59586312312b3d55456c615245авпваи5453d4d544d7a4e327479645735726прарап3325675633256смисми6a636d466a6132566b4d513d3d챮첊챩첚챭첇챝챝|ᢥ᢬ᢙᣑᢽᢜᢥᢊᢦᢜᢝᢉᢥᣒᢱᣑᢦᣒᢩᢌᢦᣂᣃᢋᢥᢜᣄᢾᢦᣁᣋᣑᢨ᢬ᢩᣌᢥᢑрапрайукарᢛᢚᢦᢠᢌᣑᢱᢜᢾᢩᣍ᢬ᢜᢪᣀᣂрапрᢺᢪᢿᣒᢨᢩᣍᣂᢾᢩᣌ᢬рвапфыᣆᢩᣎ᢬}%JHB$Q8zZDrOnM#21hcp{rNANкеунXRdpbOR2SDTQiHeDT~6O4ujj᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒᢰᢪᣀ᢬ᣆᢪᣁᣂᢰᢪᣀᢜᣂᢪᣁᣒᢺᢩᣋᣅᢤᢩᣋ57r%yssoiwOxzbf~YxHbцукецуqffT9q*VB{~%z|0H*XtM8Wmy5oWgV{ᢜпаролопᢨᢩᣎᢊ᢬ᢪᢿᢜᢰᢩᣎᣂᢰᢩᣍᣒ᢬ᢩᣌᢜᢰᢩᣌᣂᢺᢪᣂ᢯ᢦᢻвапрвапᢦᣌᢟᢨᢥᢼᢟᢠᢦᢼᢟᢚᢥᣌᢛᢐᢦᢦᢛᢌᢦᢼᢟᢛᢦᢦᢟᢥᢦᢼᢛᣐᢥᢑᢟᢧᢲᢛᢌᢈᢤᢊᢪᣐᢦᢰᢻᢈᢲyw3iIECg6gQb4$6TuSzlCzDlW6On1YpMcJscbv%iC}A6rGA2$Y᢬ᢪᣑᢲᢠᢩᢋᢽ᢯ᢞᢉᢦᢟᣄᣄᢺᣒᢦᣏᢥᣄᣋᢋᢰ᢬ᢪᣀᢦᢋᢥᢍᢲᢜᢲᣅᢦᢟᢻᢉᢹᢜᢼᣉᢥᢊᣋᢉᢺᢜᢻᢏᢥᣁᢻᢊᢰᢜᢦᢎᢥᢋᢿᣑᢱᣒ᢮ᢊᢦᣅᢡᢋᢺᣂ᢮ᣌᢦᣁᣏᣒᢤᣂᢥᣎᢥᣂ᢭ᢊᢦᣅᢝᢊᢥMT2n?Mw7B@*jYtfeLXlIN7G5O102~zl4DlGttaPbDfVDfxo9Igᣒᢲᣃᢦᢜᢱᢊᢱ᢬ᢱᣐᢥᣒᢡᢉᢦᣂᢲᣁᢦᢟᢩᢉᢥ᢬ᢦᣃᢥᢊᢩᣏᢽᢜᢱᣐᢥᣒᢡᢈᢦᣂᢻᢍᢦᣂᢡᢈᢥᣒᢩᣑᢦᣒᢙᢊᢥᣒᢻᢍᢦᢜᢡᢊᢲ᢬᢭ᢍᢦ᢬ᢿᢊᢱᣂᢦᣃᢦ᢬᢭ᢈᢦ᢬ᢲᣂᢦᣂᢝᢉᢥᣂᢩᢉᢦᢜ᢭ᣒᢲᢜᢪᣃᢦzk47C$IEiJeIeXzif0GX9r9KH*IdYF3*b$sj%d$MB~BuTQdlrp᢬ᢩᢈᢲᢜᢼᣀᢦᢟ᢭ᣒᢥᣂᢻᢈᢦᣒᣃᢊᢦᢜ᢭ᢋᢥᣒ᢭ᢋᢥᣂᢱᣒᢥᣒyRz9$zCAnk1*TtS~cE8PV~p}htW23JHG*?5QIN8dSaHoT~5d~u6YRQXWpQE|cJA$ZMkl7~8fd3Xci??ZFb$OgoeJlr%nQ6H?KgFKᢡᢉᢦᣂᢻᢉᢦᣂᢥᣒᢥᣂ᢭ᢊᢦᣅᢝᢊᢥ57#V&x&tCo*0b752ᣒᢲᣃᢦᢜᢱᢊᢱ᢬ᢱᣐᢥᣒᢡᢉᢦᣂᢲᣁᢦᢟᢩᢉᢥ᢬ᢦᣃᢥᢊᢩᢕ"
+  }
+  if (salttt == "medium") {
+    console.log(2)
+    salt = "o4236asqwi}fSDFGSDFGSFDgnHyCtvz?5347%2rSmU*DJF3Z%kaGSDFGSDGSgfsiposerdpsfolkgb]c[vk]bn[ovnopcvbp[dihio[triyer[poqwerojksa['fqwe]edf;sxfvsd.\cvxc.vASDf\asdfq][weprrp]tefdsg'\sdfgsdflvxbc/vxcvbbsdfgsd;fklg'poertw[rtwe]qwqwe]sldf;\sdfs\SD\AD;ASF\';SDKD5Yo2467962434270637942653452парапрорe59586b3d55456c615245453d4d544d7a4e3{odx)cv(b;l312578[nk()jj᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒᢰ\s\zow1222930"
+  }
+  if (salttt == "easy") {
+    console.log(3)
+    salt = "12᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒ34ъхап645q᢬ᢩd7a4e32747964573572633256756332566a636d466a613256ыавы1236b4dᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒᢰ\askfsddgfdfopdd7a4e32747964573572633256756332566a636d466a613256ыавы1236b4d᢬ᢩᣋᣒᢤᢪᣁᢜᢺᢪᣁ᢯ᢰᢩᣌᣒ2d7a4e32747964573572633256756332566a636d466a613256ыавы1236b4d3590"
+  }
+  if (salttt == "custom") {
+    console.log(4)
+    salt = saltt
+  }
+  if (seedtype1 == "zalgo"){
+    seed34 = 729
+    console.log(1)
+  }
+  if (seedtype1 == "random"){
+    seed34 = Math.floor(Math.random() * 6969) + 1;
+    console.log(2)
+  }
+  if (seedtype1 == "custom"){
+    seed34 = customseed
+    console.log(3)
+  }
+  const encoder = new TextEncoder()
+  const data = encoder.encode(text)
+  let base64 = ''
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+  let padding = 0
+  let position = 0
+  let buffer = 0
+  while (position < data.length) {
+    buffer <<= 8
+    buffer |= data[position];
+    padding += 8;
+    position++
+    while (padding >= 6) {
+      padding -= 6
+      const index = (buffer >> padding) & 0x3f
+      base64 += characters[index]
+    }
+  }
+  if (padding > 0) {
+    buffer <<= 6 - padding
+    const index = buffer & 0x3f
+    base64 += characters[index]
+  }
+  while (base64.length % 4 !== 0) {
+    base64 += '='
+  }
+  return base64
+}
+function encodeToBase641(data) {
+  const binaryBuffer = new TextEncoder().encode(data);
+  const base64Encoded = btoa(String.fromCharCode(...binaryBuffer));
+  return base64Encoded;
+}
+const base64String = keyphrases.map((phrase) => encodeToBase64(phrase)).join('')
+
+const hexString = Array.from(base64String, function (char) {
+  return char.charCodeAt(0).toString(16).padStart(2, '0')
+}).join('');
+const numberString = "0x" + hexString
+
+console.log(numberString)
+
+var basenum = Number(numberString)
+basenum = Math.floor(basenum % 100000)
+
+console.log(basenum)
+
+var num = seed34
+var textforencode = document.getElementById("MainInput").value;
+var pon = encodeText1(num) + "|" + encodeText(textforencode, salt);
+if (SecondPartProtect == true) {
+    console.log("SPP Enabled")
+    console.log("Without SPP: " + pon)
+function encodeToHex(inputString) {
+  let hexString = '';
+  for (let i = 0; i < inputString.length; i++) {
+    const hex = inputString.charCodeAt(i).toString(16);
+    hexString += '\\u' + '0'.repeat(4 - hex.length) + hex;
+  }
+  return hexString;
+}
+pon = encodeToHex(pon)
+}
+MainOutput.textContent = pon
+console.log(pon);
+console.log(num);
+
+function encodeText(text, salt) {
+  text = encodeToBase641(text)
+  const combinedText = interleaveTextAndSalt(text, salt, saltper);
+  const utf8Url = unescape(encodeURIComponent(combinedText));
+  const base64Url = btoa(utf8Url);
+  const emojiString = Array.from(base64Url).map(char => String.fromCodePoint(num + char.charCodeAt(0))).join('');
+  return emojiString;
+}
+
+function encodeText1(text) {
+  const utf8Url = unescape(encodeURIComponent(text));
+  const base64Url = btoa(utf8Url);
+  const emojiString = Array.from(base64Url).map(char => String.fromCodePoint(basenum + char.charCodeAt(0))).join('');
+  return emojiString;
+}
+
+function interleaveTextAndSalt(text, salt, period) {
+  let combinedText = '';
+  let saltIndex = saltid;
+
+  for (let i = 0; i < text.length; i++) {
+    combinedText += text[i];
+    if (i % period === 0 && saltIndex < salt.length) {
+      combinedText += salt[saltIndex];
+      saltIndex++;
+    }
+    if (saltIndex === salt.length) {
+      saltIndex = 0;
+    }
+  }
+
+  return combinedText;
+}
+}
+function copyToClipboard() {
+      var mainOutput = document.getElementById("MainOutput");
+      var textToCopy = mainOutput.textContent;
+      var tempTextarea = document.createElement("textarea");
+      tempTextarea.value = textToCopy;
+      document.body.appendChild(tempTextarea);
+      tempTextarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempTextarea);
+
+    }
+    var settings = JSON.parse(localStorage.getItem('settings')) || {
+      SecondPartProtect: true,
+      keyType: 'number',
+      keyValue: '',
+      seedType: 'random',
+      seedValue: '',
+      saltType: 'hard',
+      saltValue: ''
+    };
+    function saveSettings() {
+      localStorage.setItem('settings', JSON.stringify(settings));
+    }
+    function updateKeyValueInput() {
+  var keyInputContainer = document.getElementById('KeyInputContainer');
+  var keyType = settings.keyType;
+  keyInputContainer.innerHTML = '';
+
+  if (keyType === 'number') {
+    var keyInput = document.createElement('input');
+    keyInput.type = 'number';
+    keyInput.id = 'KeyInput';
+    keyInput.value = settings.keyValue;
+    keynum = settings.keyValue;
+        keyphrases = [
+    settings.keyValue
+    ]
+    console.log(keynum)
+    keyInput.addEventListener('input', handleKeyValueChange);
+    keyInputContainer.appendChild(keyInput);
+  } else if (keyType === 'phrases') {
+    var keyTextArea = document.createElement('textarea');
+    keyTextArea.id = 'KeyTextArea';
+    keyTextArea.value = settings.keyValue;
+    keyphr = settings.keyValue
+    keyphrases = [
+    settings.keyValue
+    ]
+    console.log(keyphr)
+    keyTextArea.addEventListener('input', handleKeyValueChange);
+    keyInputContainer.appendChild(keyTextArea);
+  }
+}
+    function updateKeyType() {
+  var keyTypeDropdown = document.getElementById('KeyTypeDropdown');
+  settings.keyType = keyTypeDropdown.value;
+  keymethod = settings.keyType
+  console.log(keymethod)
+  saveSettings();
+  updateKeyValueInput();
+}
+
+function handleSaltPeriodChange() {
+  var saltPeriodInput = document.getElementById('SaltPeriodInput');
+  settings.saltperiod = parseInt(saltPeriodInput.value) || 1;
+  saltper = settings.saltperiod
+  console.log(saltper)
+  saveSettings();
+}
+function handleSaltStartIndexChange() {
+  var saltStartIndexInput = document.getElementById('SaltStartIndexInput');
+  settings.saltstartindex = parseInt(saltStartIndexInput.value) || 1;
+  saltid = settings.saltstartindex
+  console.log(saltid)
+  saveSettings();
+}
+
+    function updateSeedType() {
+      var seedTypeDropdown = document.getElementById('SeedTypeDropdown');
+      settings.seedType = seedTypeDropdown.value;
+      seedtype1 = seedTypeDropdown.value
+      console.log(seedtype1)
+      saveSettings();
+      updateSeedValueInput();
+    }
+
+    function updateSeedValueInput() {
+      var seedValueContainer = document.getElementById('SeedValueContainer');
+      var seedType = settings.seedType;
+      
+
+      seedValueContainer.innerHTML = '';
+
+      if (seedType === 'custom') {
+        var seedInput = document.createElement('input');
+        seedInput.type = 'text';
+        seedInput.id = 'SeedInput';
+        seedInput.value = settings.seedValue;
+        customseed = seedInput.value
+        console.log(customseed)
+        seedInput.addEventListener('input', handleSeedValueChange);
+        seedValueContainer.appendChild(seedInput);
+      }
+    }
+
+    function updateSaltType() {
+      var saltTypeDropdown = document.getElementById('SaltTypeDropdown');
+      settings.saltType = saltTypeDropdown.value;
+      salttt = settings.saltType;
+      console.log(salttt)
+      saveSettings();
+      updateSaltValueInput();
+    }
+    function updateSaltValueInput() {
+      var saltValueContainer = document.getElementById('SaltValueContainer');
+      var saltType = settings.saltType;
+      saltValueContainer.innerHTML = '';
+
+      if (saltType === 'custom') {
+        var saltInput = document.createElement('input');
+        saltInput.type = 'text';
+        saltInput.id = 'SaltInput';
+        saltInput.value = settings.saltValue;
+        saltt = saltInput.value
+        console.log(saltt)
+        saltInput.addEventListener('input', handleSaltValueChange);
+        saltValueContainer.appendChild(saltInput);
+      }
+    }
+
+    function handleSecondPartProtectCheckbox() {
+      settings.SecondPartProtect = !settings.SecondPartProtect;
+      SecondPartProtect = settings.SecondPartProtect
+      saveSettings();
+    }
+    function handleKeyValueChange() {
+      var inputElement = document.getElementById('KeyInput');
+      var textAreaElement = document.getElementById('KeyTextArea');
+      
+      if (inputElement) {
+        settings.keyValue = inputElement.value;
+        keyphr = settings.keyValue
+    keyphrases = [
+    settings.keyValue
+    ]
+    console.log(keyphrases)
+      } else if (textAreaElement) {
+        settings.keyValue = textAreaElement.value;
+        keyphr = settings.keyValue
+    keyphrases = [
+    settings.keyValue
+    ]
+    console.log(keyphrases)
+      }
+      saveSettings();
+    }
+
+    function handleSeedValueChange() {
+      var seedInput = document.getElementById('SeedInput');
+      console.log(customseed)
+      settings.seedValue = seedInput.value;
+      customseed = settings.seedValue
+      saveSettings();
+    }
+    function handleSaltValueChange() {
+      var saltInput = document.getElementById('SaltInput');
+      settings.saltValue = saltInput.value;
+      saltt = saltInput.value
+      console.log(saltt)
+      saveSettings();
+    }
+
+    window.onload = function () {
+      var SecondPartProtectCheckbox = document.getElementById('SecondPartProtectCheckbox');
+      SecondPartProtectCheckbox.checked = settings.SecondPartProtect;
+
+      var keyTypeDropdown = document.getElementById('KeyTypeDropdown');
+      keyTypeDropdown.value = settings.keyType;
+
+      var seedTypeDropdown = document.getElementById('SeedTypeDropdown');
+      seedTypeDropdown.value = settings.seedType;
+      seedtype1 = settings.seedType
+      console.log(settings.seedType)
+
+      var saltTypeDropdown = document.getElementById('SaltTypeDropdown');
+      saltTypeDropdown.value = settings.saltType;
+      salttt = settings.saltType;
+      console.log(salttt)
+      var saltPeriodInput = document.getElementById('SaltPeriodInput');
+  saltPeriodInput.value = settings.saltperiod || 1
+  saltPeriodInput.addEventListener('input', handleSaltPeriodChange);
+  saltper = saltPeriodInput.value;
+  console.log(saltper)
+
+  var saltStartIndexInput = document.getElementById('SaltStartIndexInput');
+  saltStartIndexInput.value = settings.saltstartindex || 1
+  saltStartIndexInput.addEventListener('input', handleSaltStartIndexChange);
+  saltid = saltStartIndexInput.value;
+  console.log(saltid)
+
+      updateKeyValueInput();
+      updateSeedValueInput();
+      updateSaltValueInput();
+    };
+var SecondPartProtect = settings.SecondPartProtect
+var keynumber = 728
+keyphr = settings.keyValue;
+keyphrases = [
+keyphr
+];
+var keymethod = settings.keyType
+var keynum = settings.keyValue;
+var salttt
+var saltt
+
+  </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>P.EXTENDED ENCODE METHOD by petiuka</h1>
+      <h2 id="settings">Settings</h2>
+      <div class="checkbox-wrapper-45">
+        <input id="SecondPartProtectCheckbox" type="checkbox" onchange="handleSecondPartProtectCheckbox()">
+        <label class="cbx" for="SecondPartProtectCheckbox">
+          <div class="flip">
+            <div class="front"></div>
+            <div class="back">
+              <svg width="16" height="14" viewBox="0 0 16 14">
+                <path d="M2 8.5L6 12.5L14 1.5"></path>
+              </svg>
+            </div>
+          </div>
+        </label>
+        <label for="SecondPartProtectCheckbox" class="checkbox-label">To Unicode Text</label>
+      </div>
+<div>
+  <label for="KeyTypeDropdown">Key Type:</label>
+  <select id="KeyTypeDropdown" onchange="updateKeyType()">
+    <option value="number">Number</option>
+    <option value="phrases">Phrases</option>
+  </select>
+</div>
+<div id="KeyInputContainer"></div>
+<div>
+  <label for="SeedTypeDropdown">Seed Type:</label>
+  <select id="SeedTypeDropdown" onchange="updateSeedType()">
+    <option value="random">Random</option>
+    <option value="zalgo">Zalgo</option>
+    <option value="custom">Custom</option>
+  </select>
+</div>
+<div>
+  <label for="SaltPeriodInput">Salt Period (>1 risky):</label>
+  <input type="number" id="SaltPeriodInput">
+</div>
+<div>
+  <label for="SaltStartIndexInput">Salt Start Index:</label>
+  <input type="number" id="SaltStartIndexInput">
+</div>
+<div id="SeedValueContainer"></div>
+<div>
+  <label for="SaltTypeDropdown">Salt Type:</label>
+  <select id="SaltTypeDropdown" onchange="updateSaltType()">
+    <option value="hard">Hard</option>
+    <option value="medium">Medium</option>
+    <option value="easy">Easy</option>
+    <option value="custom">Custom</option>
+  </select>
+</div>
+<div id="SaltValueContainer"></div>
+      <h2>Input</h2>
+      <textarea id="MainInput" placeholder="Enter text"></textarea>
+      <div>
+        <button class="button-regular" role="button" onclick="globalEncode()">Encode</button>
+        <button class="button-regular" role="button" onclick="globalDecode()">Decode</button>
+      </div>  
+      <h2>Output</h2>
+      <div class="MainOutput" id="MainOutput"></div>
+      <button class="button-regular" role="button" onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>  
+  </div>
+</body>
+</html>
