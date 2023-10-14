@@ -8,7 +8,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 105vh;
       margin: 0;
       background-color: #f1f1f1;
       font-family: 'Inter', sans-serif;
@@ -25,10 +25,15 @@
     }
 
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 5px;
+    }
+    .output-image {
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     }
 
     textarea {
+      margin: 5px;
       width: 300px;
       height: 50px;
       min-width: 250px;
@@ -45,7 +50,7 @@
     }
 
     .button-regular {
-      margin-top: 10px;
+      margin: 4px;
       padding: 10px 20px;
       border: none;
       outline: none;
@@ -158,7 +163,7 @@ select {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
     .MainOutput {
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -172,7 +177,8 @@ select {
 }
   </style>
   <script>
-    var keyphr = "";
+var encodingimage
+var keyphr = "";
 var keyphrases
 var customseed
 var seedtype1
@@ -315,6 +321,22 @@ var decryptedSecondPart = decodeText2(secondPart, num)
 var originalText = removeSaltFromText(decryptedSecondPart, salt, saltper)
 console.log(originalText)
 MainOutput.textContent = originalText
+try {
+  function insertImage() {
+    const imageBase64 = originalImage
+    const imageElement = document.createElement("img");
+    imageElement.src = imageBase64;
+    imageElement.classList.add("output-image");
+    const outputContainer = document.getElementById("MainOutput");
+    outputContainer.innerHTML = '';
+    outputContainer.appendChild(imageElement);
+  }
+var originalImage = removeSaltFromText(decryptedSecondPart, "", saltper)
+insertImage()
+console.log("Image:" + originalImage)
+} catch(err) {
+  console.log("Not image")
+}
 }
 function globalEncode() {
 function encodeToBase64(text) {
@@ -345,6 +367,10 @@ function encodeToBase64(text) {
   if (seedtype1 == "custom"){
     seed34 = customseed
     console.log(3)
+  }
+  if (encodingimage == true){
+    console.log("Image encoding")
+    salt = ""
   }
   const encoder = new TextEncoder()
   const data = encoder.encode(text)
@@ -663,6 +689,59 @@ var keynum = settings.keyValue;
 var salttt
 var saltt
 
+function selectImage() {
+  const imageInput = document.getElementById("imageInput");
+  imageInput.addEventListener("change", function (e) {
+    const selectedImage = e.target.files[0];
+    if (selectedImage) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        console.log(event.target.result)
+        encodingimage = true
+        var imgs = event.target.result
+        document.getElementById("MainInput").value = event.target.result
+        globalEncode()
+        encodingimage = false
+      };
+      reader.readAsDataURL(selectedImage);
+    }
+  });
+  imageInput.click();
+}
+function downloadAsTxt() {
+  var mainOutput = document.getElementById("MainOutput");
+  var textToDownload = mainOutput.textContent;
+  
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textToDownload));
+  element.setAttribute('download', 'output.txt');
+  
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  
+  element.click();
+  
+  document.body.removeChild(element);
+}
+function loadTextFile() {
+  const fileInput = document.getElementById("fileInput");
+  fileInput.click();
+  fileInput.addEventListener("change", function () {
+    const file = fileInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const content = e.target.result;
+        const mainInput = document.getElementById("MainInput");
+        mainInput.value = content;
+      };
+
+      reader.readAsText(file);
+    }
+  });
+}
+
   </script>
   </head>
   <body>
@@ -719,7 +798,15 @@ var saltt
 </div>
 <div id="SaltValueContainer"></div>
       <h2>Input</h2>
+      <div>
+        <input class="button-regular" type="file" id="fileInput" accept=".txt" style="display: none;">
+        <button class="button-regular" role="button" onclick="loadTextFile()">Import text from file</button>
+      </div>
       <textarea id="MainInput" placeholder="Enter text"></textarea>
+      <div>
+        <input class="button-regular" type="file" id="imageInput" accept="image/*">
+        <button class="button-regular" role="button" onclick="selectImage()">Encode Selected Image</button>
+      </div>
       <div>
         <button class="button-regular" role="button" onclick="globalEncode()">Encode</button>
         <button class="button-regular" role="button" onclick="globalDecode()">Decode</button>
@@ -727,6 +814,7 @@ var saltt
       <h2>Output</h2>
       <div class="MainOutput" id="MainOutput"></div>
       <button class="button-regular" role="button" onclick="copyToClipboard()">Copy to Clipboard</button>
+      <button class="button-regular" id="downloadAsTxtButton" onclick="downloadAsTxt()">Download as TXT</button>
     </div>  
   </div>
 </body>
