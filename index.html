@@ -696,12 +696,41 @@ function selectImage() {
     if (selectedImage) {
       const reader = new FileReader();
       reader.onload = function (event) {
-        console.log(event.target.result)
-        encodingimage = true
-        var imgs = event.target.result
-        document.getElementById("MainInput").value = event.target.result
-        globalEncode()
-        encodingimage = false
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = function() {
+          const maxWidth = 800;
+          const maxHeight = 600;
+          let newWidth, newHeight;
+          if (img.width > img.height) {
+            if (img.width > maxWidth) {
+              newWidth = maxWidth;
+              newHeight = (img.height * maxWidth) / img.width;
+            } else {
+              newWidth = img.width;
+              newHeight = img.height;
+            }
+          } else {
+            if (img.height > maxHeight) {
+              newHeight = maxHeight;
+              newWidth = (img.width * maxHeight) / img.height;
+            } else {
+              newWidth = img.width;
+              newHeight = img.height;
+            }
+          }
+          const canvas = document.createElement("canvas");
+          canvas.width = newWidth;
+          canvas.height = newHeight;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, newWidth, newHeight);
+          const compressedImageBase64 = canvas.toDataURL("image/jpeg", 0.7);
+          document.getElementById("MainInput").value = compressedImageBase64;
+          encodingimage = true
+          globalEncode()
+          encodingimage = false
+        };
+        img.src = event.target.result;
       };
       reader.readAsDataURL(selectedImage);
     }
